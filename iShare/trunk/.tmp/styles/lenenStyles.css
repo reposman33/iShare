@@ -1,0 +1,41 @@
+.nav li {
+  border: 1px solid #BBB;
+  border-radius: 5px;
+  float: left;
+}
+
+.nav li.selected {
+  background-color: #CCC;
+}
+
+.container .span* {
+  position: relative;
+}
+
+div[class*="span"] {
+  margin: 5px;
+}
+
+.span2 {
+  width: 150px;
+}
+
+.img {
+  background-size: 100px auto;
+  background-repeat: no-repeat;
+  height: 100px;
+}
+
+#listView .span2:nth-child(even) {
+  background-color: #CCC;
+}
+
+#listView .span2:nth-child(odd) {
+  background-color: #DDD;
+}
+
+.glyphicon.btn {
+  width: 30px;
+  height: 26px;
+  float: right;
+}

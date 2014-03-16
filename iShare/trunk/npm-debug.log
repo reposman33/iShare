@@ -1,0 +1,107 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'grunt-http-server',
+1 verbose cli   '-' ]
+2 info using npm@1.3.24
+3 info using node@v0.10.25
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 warn package.json ishare@0.0.0 No description
+6 warn package.json ishare@0.0.0 No repository field.
+7 warn package.json ishare@0.0.0 No README data
+8 verbose readDependencies using package.json deps
+9 verbose cache add [ 'grunt-http-server', null ]
+10 verbose cache add name=undefined spec="grunt-http-server" args=["grunt-http-server",null]
+11 verbose parsed url { protocol: null,
+11 verbose parsed url   slashes: null,
+11 verbose parsed url   auth: null,
+11 verbose parsed url   host: null,
+11 verbose parsed url   port: null,
+11 verbose parsed url   hostname: null,
+11 verbose parsed url   hash: null,
+11 verbose parsed url   search: null,
+11 verbose parsed url   query: null,
+11 verbose parsed url   pathname: 'grunt-http-server',
+11 verbose parsed url   path: 'grunt-http-server',
+11 verbose parsed url   href: 'grunt-http-server' }
+12 verbose cache add [ '-', null ]
+13 verbose cache add name=undefined spec="-" args=["-",null]
+14 verbose parsed url { protocol: null,
+14 verbose parsed url   slashes: null,
+14 verbose parsed url   auth: null,
+14 verbose parsed url   host: null,
+14 verbose parsed url   port: null,
+14 verbose parsed url   hostname: null,
+14 verbose parsed url   hash: null,
+14 verbose parsed url   search: null,
+14 verbose parsed url   query: null,
+14 verbose parsed url   pathname: '-',
+14 verbose parsed url   path: '-',
+14 verbose parsed url   href: '-' }
+15 silly lockFile bf2b12c9-grunt-http-server grunt-http-server
+16 verbose lock grunt-http-server C:\Users\marc\AppData\Roaming\npm-cache\bf2b12c9-grunt-http-server.lock
+17 silly lockFile 3bc15c8a- -
+18 verbose lock - C:\Users\marc\AppData\Roaming\npm-cache\3bc15c8a-.lock
+19 silly lockFile 3bc15c8a- -
+20 silly lockFile 3bc15c8a- -
+21 silly lockFile bf2b12c9-grunt-http-server grunt-http-server
+22 silly lockFile bf2b12c9-grunt-http-server grunt-http-server
+23 verbose addNamed [ '-', '' ]
+24 verbose addNamed [ null, '*' ]
+25 silly lockFile c75fe0d4- -@
+26 verbose lock -@ C:\Users\marc\AppData\Roaming\npm-cache\c75fe0d4-.lock
+27 verbose addNamed [ 'grunt-http-server', '' ]
+28 verbose addNamed [ null, '*' ]
+29 silly lockFile 0b0d37c7-grunt-http-server grunt-http-server@
+30 verbose lock grunt-http-server@ C:\Users\marc\AppData\Roaming\npm-cache\0b0d37c7-grunt-http-server.lock
+31 silly addNameRange { name: '-', range: '*', hasData: false }
+32 verbose url raw -
+33 verbose url resolving [ 'https://registry.npmjs.org/', './-' ]
+34 verbose url resolved https://registry.npmjs.org/-
+35 info trying registry request attempt 1 at 17:15:08
+36 http GET https://registry.npmjs.org/-
+37 silly addNameRange { name: 'grunt-http-server', range: '*', hasData: false }
+38 verbose url raw grunt-http-server
+39 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-http-server' ]
+40 verbose url resolved https://registry.npmjs.org/grunt-http-server
+41 info trying registry request attempt 1 at 17:15:08
+42 verbose etag "BGAFA7ZXTHN9B15DEK4JVTGZL"
+43 http GET https://registry.npmjs.org/grunt-http-server
+44 http 404 https://registry.npmjs.org/-
+45 silly registry.get cb [ 404,
+45 silly registry.get   { date: 'Tue, 04 Feb 2014 16:15:09 GMT',
+45 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B)',
+45 silly registry.get     'content-type': 'application/json',
+45 silly registry.get     'accept-ranges': 'bytes',
+45 silly registry.get     via: '1.1 varnish',
+45 silly registry.get     age: '0',
+45 silly registry.get     'cache-control': 'max-age=0',
+45 silly registry.get     'content-length': '52',
+45 silly registry.get     'x-served-by': 'cache-v44-ASH, cache-am71-AMS',
+45 silly registry.get     'x-cache': 'MISS, MISS',
+45 silly registry.get     'x-cache-hits': '0, 0',
+45 silly registry.get     'x-timer': 'S1391530509.059688568,VS0,VS45,VE60,VE107',
+45 silly registry.get     'keep-alive': 'timeout=10, max=50',
+45 silly registry.get     connection: 'Keep-Alive' } ]
+46 silly lockFile c75fe0d4- -@
+47 silly lockFile c75fe0d4- -@
+48 error Error: not_found document not found: -
+48 error     at RegClient.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:275:14)
+48 error     at Request.self.callback (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:123:22)
+48 error     at Request.EventEmitter.emit (events.js:98:17)
+48 error     at Request.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:893:14)
+48 error     at Request.EventEmitter.emit (events.js:117:20)
+48 error     at IncomingMessage.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:844:12)
+48 error     at IncomingMessage.EventEmitter.emit (events.js:117:20)
+48 error     at _stream_readable.js:920:16
+48 error     at process._tickCallback (node.js:415:13)
+49 error If you need help, you may report this *entire* log,
+49 error including the npm and node versions, at:
+49 error     <http://github.com/isaacs/npm/issues>
+50 error System Windows_NT 6.1.7601
+51 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "grunt-http-server" "-"
+52 error cwd G:\www\iShare
+53 error node -v v0.10.25
+54 error npm -v 1.3.24
+55 verbose exit [ 1, true ]

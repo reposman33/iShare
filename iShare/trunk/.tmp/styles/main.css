@@ -1,0 +1,190 @@
+.nav li,
+.nav li a.selected {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  float: left;
+}
+
+.nav li a.selected {
+  border: 1px solid #BBB;
+  background-color: #EEE;
+}
+
+.nav-pills li a {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.nav-pills a {
+  background-color: #EEE;
+}
+
+.container .span* {
+  position: relative;
+}
+
+div[class*="span"] {
+  margin: 5px;
+}
+
+.span2 {
+  width: 150px;
+}
+
+.img {
+  background-size: 100px auto;
+  background-repeat: no-repeat;
+  height: 100px;
+}
+
+#listView .span2:nth-child(even) {
+  background-color: #CCC;
+}
+
+#listView .span2:nth-child(odd) {
+  background-color: #DDD;
+}
+
+.glyphicon.btn {
+  width: 30px;
+  height: 26px;
+  float: right;
+  padding: 0;
+}
+
+.cards {
+  background-color: #DDDDDD;
+}
+
+.row .cards {
+  height: 100%;
+  min-height: 100%;
+}
+
+/*
+styles from "AngularJS in 60 Minutes" by Dan Wahlin
+*/
+
+body {
+  padding: 65px;
+}
+
+.view {
+  left: 60px;
+  position: relative;
+  opacity: 0.0;
+}
+
+.card {
+  background-color: #efefef;
+  border: 1px solid black;
+  width: 225px;
+  margin: 0 5px 20px 5px;
+  float: left;
+}
+
+.cardHeader {
+  background-color: #006dcc;
+  font-size: 14pt;
+  color: white;
+  padding: 5px;
+}
+
+.cardClose {
+  color: white;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.cardContainer {
+  width: 90%;
+}
+
+.cardBody {
+  padding-left: 5px;
+}
+
+.lastRow {
+  background-color: #ccc;
+}
+
+.indent {
+  margin-left: 20px;
+}
+
+.ordersTable {
+  width: 800px;
+  margin-left: 20px;
+}
+
+.orders th,
+.customerOrders th {
+  width: 25%;
+  cursor: pointer;
+}
+
+.ordersTable tr:first-child th {
+  background-color: #006dcc;
+  color: #fff;
+  font-weight: bold;
+}
+
+#submitCustomer {
+  margin-left: 50px;
+  margin-top: -8px;
+}
+
+footer {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Bootstrap overrides */
+
+.navbar-inner {
+  border-radius: 0px;
+}
+
+.navbar .nav {
+  margin-left: 50px;
+  margin-top: 15px;
+}
+
+input[class^="col-md-"] {
+  padding-right: 5px;
+  margin: 1px;
+}
+
+input[class^="col-md-2"]:last-child {
+  margin-right: 0;
+}
+
+.close {
+  opacity: 1.0;
+}
+
+.bg {
+  background-color: #DDD;
+}
+
+.bgLightGrey {
+  background-color: #f9f9f9;
+}
+
+.popup {
+  background-color: #CCCCCC;
+  border: 5px ridge #a9302a;
+  box-shadow: 8px 8px 13px -5px #000;
+  padding: 5px;
+  position: absolute;
+}
+
+.selected
+/*aanpassen JQuery datepicker size*/
+.ui-widget {
+  font-size: 0.7em;
+}
+
+.pointer {
+  cursor: pointer;
+}

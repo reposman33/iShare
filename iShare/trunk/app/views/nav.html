@@ -1,0 +1,11 @@
+<div class="navbar navbar-fixed-top bg" role="navigation" ng-controller="navbarController">
+	<div class="navbar-inner">
+		<div class="container col-md-5" >
+			<ul class="nav nav-pills ">
+				<li ng-class="{'active' : isSelected('contacts')}"><a ng-href="#/contacts" >Contacten</a></li>
+				<li ng-class="{'active' : isSelected('items,itemDetail')}"><a ng-href="#/items">Uitgeleend</a></li>
+			</ul>
+		</div>
+		<div class="col md-1 col-md-offset-5 h2">iShare</div>
+	</div>
+</div>
