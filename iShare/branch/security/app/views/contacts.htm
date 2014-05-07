@@ -1,0 +1,32 @@
+<h2>Contacts</h2>
+<div class="row">
+	<div class="glyphicon glyphicon-user"> </div>
+	<form class="form-horizontal">
+		<div class="form-group col-md-12">
+				<input type="text" class="col-md-2" ng-model="newContact.name" placeholder="Naam" my-focus>
+				<input type="text" class="col-md-2" ng-model="newContact.address" placeholder="Adres">
+				<input type="text" class="col-md-1" ng-model="newContact.zipcode" placeholder="Postcode">
+				<input type="text" class="col-md-2" ng-model="newContact.city" placeholder="Woonplaats">
+				<input type="text" class="col-md-2" ng-model="newContact.telephone" placeholder="Telefoon">
+				<input type="email" class="col-md-2" ng-model="newContact.email" placeholder="E-mail">
+		</div>
+		<button class="btn-large btn-success col-md-2 col-md-offset-9" ng-click="addContact()">Toevoegen</button>
+	</form>
+</div>
+
+<div class="row cards">
+	<div class="span3 card" ng-repeat="contact in contacts| orderByPriority">
+		<button class="btn close cardClose" ng-click="deleteContact(contact.$id)">&times;</button>
+		<div class="cardHeader">
+			{{contact.name}}
+			<div class="glyphicon glyphicon-pencil btn" ng-click="editContact(contact.$id)"></div>
+		</div>
+		<div class="cardBody">
+			<div>{{contact.address}} {{contact.addressNr}}</div>
+			<div>{{contact.zipcode}}&nbsp;{{contact.city}}</div>
+			<div>{{contact.telephone}}</div>
+			<div>{{contact.email}}</div>
+			<div class="glyphicon glyphicon-plus btn" ng-click="itemDetail(contact.$id)"></div>
+		</div>
+	</div>
+</div>

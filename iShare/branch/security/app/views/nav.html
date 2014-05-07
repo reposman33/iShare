@@ -1,0 +1,13 @@
+<div class="container" ng-controller="navbarController">
+	<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+		<ul class="nav navbar-nav nav-pills">
+			<li ng-class="{'active' : isSelected('contacts,contactDetail')}"><a ng-href="#/contacts" >Contacten</a></li>
+			<li ng-class="{'active' : isSelected('items,itemDetail')}"><a ng-href="#/items">Uitgeleend</a></li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right nav-pills">
+			<li ng-class="{'active' : isSelected('login')}"><a href="#/login">Log in</a></li>
+			<li ng-class="{'active' : isSelected('register')}"><a href="#/register">Register</a></li>
+		</ul>
+		<span class="col md-1 col-md-offset-5 h2">iShare</span>
+	</nav>
+</div>

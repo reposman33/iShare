@@ -1,0 +1,15 @@
+<h2>Inloggen</h2>
+
+<div class="input-group">
+	<span class="input-group-addon" >Email</span>
+	<input class="form-control" type="email" ng-model="user.email">
+</div>
+
+<div class="input-group">
+	<span class="input-group-addon">Password</span>
+	<input class="form-control" type="password" ng-model="user.password">
+</div>
+
+<div class="btn-group btn-group-justified">
+	<button ng-click="authenticate(user)">OK</button>
+</div>

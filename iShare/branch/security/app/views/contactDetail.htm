@@ -1,0 +1,16 @@
+<h2>Contact wijzigen...</h2>
+<div class="row" >
+	<div class="span2"><input type="text" ng-model="contact.name" placeholder="Name"></div>
+	<div class="span2"><input type="text" ng-model="contact.address" placeholder="Address"></div>
+	<div class="span2"><input type="text" ng-model="contact.zipcode" placeholder="Zipcode"></div>
+	<div class="span2"><input type="text" ng-model="contact.city" placeholder="City"></div>
+	<div class="span2"><input type="text" ng-model="contact.telephone" placeholder="Telephone"></div>
+	<div class="span2"><input type="text" ng-model="contact.email" placeholder="Email"></div>
+</div>
+<div class="row">
+	<div class="span8"></div>
+	<div class="span4">
+		<button class="btn-small btn-success" ng-click="goTo('contacts')">Terug</button>
+		<button class="btn-small btn-success" ng-click="updateContact(contact.$id)">Wijzigen</button>
+	</div>
+</div>
