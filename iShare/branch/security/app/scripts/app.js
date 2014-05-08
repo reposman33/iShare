@@ -2,7 +2,10 @@ angular.module('iShareApp', ['ngRoute','firebase','ui.bootstrap','ui.router'])
 .constant('AppConstants',{
 	FIREBASE_ISHARE_URL:'https://firelab.firebaseio.com/iShare/',
 	FIREBASE_USERS_URL:'https://firelab.firebaseio.com/users/',
-	MONGODB_ISHARE_URL:'mongodb://mongoman:rundem@ds033818.mongolab.com:33818/ishare',
+	MONGODB_API_KEY:'pW4VAHLo4f6q45xLCZXU77w-7g_As1N2',
+	MONGODB_USERS_URL:'https://api.mongolab.com/api/1/databases/ishare/collections/users',
+	MONGODB_CONTACTS_URL:'https://api.mongolab.com/api/1/databases/ishare/collections/contacts?apiKey=pW4VAHLo4f6q45xLCZXU77w-7g_As1N2',
+	MONGODB_ITEMS_URL:'https://api.mongolab.com/api/1/databases/ishare/collections/items?apiKey=pW4VAHLo4f6q45xLCZXU77w-7g_As1N2'
 })
 .run(function($templateCache,$http){
 	$http.get('app/templates/popup.html')
@@ -11,10 +14,16 @@ angular.module('iShareApp', ['ngRoute','firebase','ui.bootstrap','ui.router'])
 		});
 })
 .config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$stateProvider){
-	$urlRouterProvider.otherwise('/');
+	$urlRouterProvider.otherwise('/home');
 	$stateProvider
+		.state('home',{
+			url:'/z`',
+			templateUrl:"app/views/home.htm",
+			controller:"SecurityController"
+		})
 		.state('contacts',{
-			url:'/',templateUrl:"app/views/contacts.htm",
+			url:'/contacts',
+			templateUrl:"app/views/contacts.htm",
 			controller:"contactController"
 		})
 		.state('contactDetail',{
@@ -34,6 +43,11 @@ angular.module('iShareApp', ['ngRoute','firebase','ui.bootstrap','ui.router'])
 		})
 		.state('login',{
 			url:'/login',
+			templateUrl:"app/views/login.html",
+			controller:"SecurityController"
+		})
+		.state('logout',{
+			url:'/logout',
 			templateUrl:"app/views/login.html",
 			controller:"SecurityController"
 		})
