@@ -6,10 +6,12 @@ angular.module('iShareApp')
 		$scope.authenticate = function(credentials) {
 			dataService.authenticate(credentials).then(
 				function(resp){
-	console.log(resp);
 					if(resp.data.length == 1){
 						var now = (new Date()).toString();
-						User.logIn(resp.data[0]._id);
+						User.logIn({
+							userId:         resp.data[0]._id.$oid,
+							accessLevel:    'user'
+						});
 						User.setLastLogin(resp.data[0].lastLogin.length > 0 ? resp.data[0].lastLogin : now);
 						dataService.setLastLogin(now, resp.data[0]._id.$oid);
 						$scope.regResult = "SUCCESS: user authenticated. Lastlogin: " + dateFilter(User.getLastLogin(),'EEEE, dd MMMM yyyy @ hh:mm:ss');
