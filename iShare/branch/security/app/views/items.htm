@@ -18,7 +18,11 @@
 			<td class="col-md-2" ng-bind="item.name"></td>
 			<td class="col-md-2" email name="{{item.contactName}}" mailto="{{item.contactEmail}}"></td>
 			<td class="col-md-4" ng-bind="item.notes" show-first=25 popup-class="popup" ></td>
-			<td class="col-md-2"><img ng-src='{{item.fileSrc}}' title="{{item.fileName}}" alt="{{item.fileName}}" width="50px"></td>
+			<td class="col-md-2"><img ng-src='{{item.fileSrc}}' title="{{item.fileName}}" alt="{{item.fileName}}" width="50px" class="media-object" zoomin></td>
 		</tr>
 	</tbody>
 	</table>
+<div  class="media-body">
+	<h4 class="media-heading"></h4>
+	<img id="zoomedinimg"/>
+</div>

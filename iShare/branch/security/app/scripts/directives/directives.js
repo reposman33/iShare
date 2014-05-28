@@ -106,4 +106,24 @@ angular.module("iShareApp")
 			element.html(el);
 		}
 	}
-});
+})
+.directive('zoomin',function(){
+	return{
+		restrict: 'A',
+		link: function(scope,element,attrs){
+			element.bind('click',function(){
+				$("#zoomedinimg").attr("src",attrs.src);
+				$("#zoomedinimg").attr("title",attrs.title);
+				$("#zoomedinimg").attr("alt",attrs.alt);
+				$(".media-heading").text(attrs.title);
+				// click the zoomed image to disappear
+				$("#zoomedinimg").bind('click',function(){
+					$("#zoomedinimg").attr("src","");
+					$("#zoomedinimg").attr("title","");
+					$("#zoomedinimg").attr("alt","");
+					$(".media-heading").text("");
+				})
+			});
+		}
+	}
+})
