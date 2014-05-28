@@ -62,7 +62,7 @@
 		<td class="span2"><div>{{item.endDate | date: 'EEE dd MM yyyy'}}</div></td>
 		<td class="span2"><div ng-bind="item.name"></div></td>
 		<td class="span2"><div ng-bind="item.notes" popup-class="alert alert-warning alert-dismissable" show-first="20"></div></td>
-		<td class="span2"><img src="{{item.fileSrc}}" title="{{item.fileName}}" alt="{{item.fileName}}" width="50px"></td>
+		<td class="span2"><img src="{{item.fileSrc}}" title="{{item.fileName}}" alt="{{item.fileName}}" width="50px" zoomin></td>
 		<td class="span2"><span class="glyphicon glyphicon-edit" ng-click="editRow=!editRow">&nbsp;</span>&nbsp;
 		<span class="glyphicon glyphicon-trash" ng-click="deleteItem(item.$id)">&nbsp;</span></td>
 	</tr>
@@ -79,3 +79,9 @@
 	</tr>
 	</tbody>
 </table>
+
+<div  class="media-body">
+	<h4 class="media-heading"></h4>
+	<img id="zoomedinimg"/>
+</div>
+<!--<div ng-include="/app/templates/imgTemplate.html"></div>-->
