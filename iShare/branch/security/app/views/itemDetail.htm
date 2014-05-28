@@ -7,16 +7,18 @@
 				<label for="startDate">Start</label>
 				<input
 					type = "date"
+					datepicker-popup="fullDate"
 					id="startDate"
-					cst-date format="DD d MM y"
+					ng-model="item.startDate"
 					placeholder="Uitgeleend op">
 			</div>
 			<div class="col-md-3">
 				<label for="endDate">End</label>
 				<input
-					type = "date"
+					type = "text"
+					datepicker-popup="fullDate"
 					id="endDate"
-					cst-date format="DD d MM y"
+					ng-model="item.endDate"
 					placeholder="Uitgeleend tot">
 			</div>
 			<div class="col-md-3">
@@ -38,7 +40,7 @@
 			</div>
 			<div ng-bind="itemFile"></div>
 			<div class="col-md-3 bgLightGrey">
-				<button class="btn-default btn-success" ng-click="saveItem()">Toevoegen</button>
+				<button class="btn-default btn-success" ng-click="saveItem(item)">Toevoegen</button>
 			</div>
 		</div>
 	</div>
@@ -55,21 +57,25 @@
 		<th>Foto</th>
 		<th>&nbsp;</th>
 	</tr>
-	<tr ng-repeat-start="item in items | orderByPriority | filter:{contactId:contact.contactId}">
-		<td class="span2">item<input type="text" datepicker-popup="fullDate" show-button-bar="false" ng-model="item.startDate"></td>
-		<td class="span2"><div editable-bsdate="item.endDate" e-datepicker-popup="dd MMMM yyyy" onbeforesave="updateItem('endDate',$data)" ng-bind="item.endDate | date:'EEE dd MMMM y'"></div></td>
+	<tr ng-repeat-start="item in items | orderByPriority">
+		<td class="span2"><div>{{item.startDate | date: 'EEE dd MM yyyy'}}</div></td>
+		<td class="span2"><div>{{item.endDate | date: 'EEE dd MM yyyy'}}</div></td>
 		<td class="span2"><div ng-bind="item.name"></div></td>
 		<td class="span2"><div ng-bind="item.notes" popup-class="alert alert-warning alert-dismissable" show-first="20"></div></td>
-		<td class="span2"><img ng-src="{{item.fileSrc}}" title="{{item.fileName}}" alt="{{item.fileName}}" width="50px"></td>
-		<td class="span2"><span class="glyphicon glyphicon-edit pointer" ng-click="editRow=!editRow">&nbsp;</span>&nbsp;<span class="glyphicon glyphicon-trash pointer" ng-click="deleteItem(item.$id)">&nbsp;</span></td>
+		<td class="span2"><img src="{{item.fileSrc}}" title="{{item.fileName}}" alt="{{item.fileName}}" width="50px"></td>
+		<td class="span2"><span class="glyphicon glyphicon-edit" ng-click="editRow=!editRow">&nbsp;</span>&nbsp;
+		<span class="glyphicon glyphicon-trash" ng-click="deleteItem(item.$id)">&nbsp;</span></td>
 	</tr>
 	<tr ng-repeat-end ng-show="editRow">
-		<td class="span2"><div editable-bsdate="item.startDate" e-datepicker-popup="dd MMMM yyyy" onbeforesave="updateItem('startDate',$data)" ng-bind="item.startDate | date:'EEE dd MMMM y'"></div></td>
-		<td class="span2"><div editable-bsdate="item.endDate" e-datepicker-popup="dd MMMM yyyy" onbeforesave="updateItem('endDate',$data)" ng-bind="item.endDate | date:'EEE dd MMMM y'"></div></td>
+		<td class="span2"><input type="text" datepicker-popup="fullDate" show-button-bar="false" ng-model="item.startDate"></td>
+		<td class="span2"><input type="text" datepicker-popup="fullDate" show-button-bar="false" ng-model="item.endDate"></td>
 		<td class="span2"><input type="text" ng-model="item.name"></td>
 		<td class="span2"><textarea type="text" ng-model="item.notes"></textarea></td>
-		<td class="span2"><input type="file" placeholder="File upload" upload-file types={"img":["jpg","jpeg","bmp","png","gif"],"doc":["doc"],"appl":["pdf"]} max-file-size="5"></td>
-		<td class="span2"><span class="glyphicon glyphicon-save pointer" ng-click="updateItem(item)">&nbsp;</span></td>
+		<td class="span2">
+			<div class="fileName">{{item.fileName}}&nbsp;<button type="button" class="close" ng-click="item.fileSrc='';item.fileName=''" ng-if="item.fileName">&times;</button></div>
+			<input type="file" upload-file types={"img":["jpg","jpeg","bmp","png","gif"],"doc":["doc"],"appl":["pdf"]} max-file-size="5">
+		</td>
+		<td class="span2"><span class="glyphicon glyphicon-save" ng-click="updateItem(item)">&nbsp;</span></td>
 	</tr>
 	</tbody>
 </table>

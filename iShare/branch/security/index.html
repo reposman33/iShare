@@ -29,6 +29,9 @@
 		<div class="container-fluid">
 			<div ng-include="'app/views/nav.html'"></div>
 			<div ui-view class="container"></div>
+			<div ng-bind="msg" ng-class="'alert alert-'+ msgType">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			</div>
 		</div>
 
 		<!--[if lt IE 9]>
@@ -59,7 +62,7 @@
 		<script type="text/javascript" src="app/scripts/controllers/navbarController.js"></script>
 		<script type="text/javascript" src="app/scripts/controllers/contactController.js"></script>
 		<script type="text/javascript" src="app/scripts/controllers/itemController.js"></script>
-		<script type="text/javascript" src="app/scripts/controllers/itemDetailController.js"></script>
+		<!--<script type="text/javascript" src="app/scripts/controllers/itemDetailController.js"></script>-->
 		<script type="text/javascript" src="app/scripts/directives/directives.js"></script>
 		<script type="text/javascript" src="app/scripts/controllers/security.js"></script>
 		<script type="text/javascript" src="app/scripts/services/User.js"></script>

@@ -94,15 +94,16 @@ angular.module('iShareApp')
 	}
 
 	//CONTACTS =================================
-	service.getContacts = function(userId){
+	service.getContactsByUserId = function(userId){
 		return $http({
-			method:'GET',url:contactsRef + '?apiKey=' + apiKey + '&q={userId:\'' + userId + '\'}'
+			method:'GET',url:contactsRef + '?apiKey=' + apiKey + '&q={userId:"' + userId + '"}'
 		});
 	};
 
-	service.getContactByContactId = function(id){
+	service.getContact = function(id){
 		return $http({
-			method:'GET',url:contactsRef + '?apiKey=' + apiKey + '&q={userId:' + userId + ',_id: + ObjectId(' + id + ')}'
+			method:'GET',
+			url:contactsRef + '/' + id + '?apiKey=' + apiKey
 		});
 	};
 
@@ -115,37 +116,82 @@ angular.module('iShareApp')
 	};
 
 	service.updateContact = function(contactId,contact){
-		var ref=contacts.$child(contactId);
-		ref.$update(contact);
-	};
+		return $http({
+			method: 'PUT',
+			url: contactsRef + '?apiKey=' + apiKey,
+			data: JSON.stringify(contact),
+			contentType: "application/json"
+		});
+	}
 
 	service.deleteContact = function(contactId){
 		contacts.$remove(contactId);
 	};
 
 
+	service.getContactsInList = function(contactIds){
+		var ids = contactIds.map(function(id){return "{'$oid':'" + id + "'}"});
+		return $http.get(contactsRef + '?apiKey=' + apiKey + '&q={userId:"' + User.getId() + '","_id":{"$in":[' + ids + ']}}');
+	}
+
+
 	// ITEMS =================================
 	service.addItem = function(item){
-		return items.$add(item);
-	};
-
-	service.getItems = function(){
-		//return items;
-	};
-
-
-	service.getItemsByContact = function(contactId){
-		return $filter('filter')(items,'{id:contactId}');
+		return $http({
+			method: 'POST',
+			url: contactsRef + '?apiKey=' + apiKey,
+			data: JSON.stringify(item),
+			contentType: "application/json"
+		});
 	};
 
 
-	service.updateItem = function(item,itemId){
-		return items.$save(itemId).then(function(){console.log(arguments)});
+	service.getItems = function() {
+		//retrieve all items for this user
+		return _getItems();
+	};
+
+	function _getItems(){
+		return $http.get(itemsRef + '?apiKey=' + apiKey + '&q={userId:"' + User.getId() + '"}');
+	}
+
+	service.getContactItems = function(contactId){
+		return $http.get(
+			itemsRef + '?apiKey=' + apiKey + '&q={userId:"' + User.getId() + '",contactId:"' + contactId + '"}'
+		);
+	};
+
+	service.updateItem = function(item){
+		return $http({
+			method: 'PUT',
+			url: itemsRef + '/' + item.id + '?apiKey=' + apiKey,
+			data: JSON.stringify({"$set" : {
+				"startDate":item.startDate,
+				"endDate":item.endDate,
+				"name":item.name,
+				"notes":item.notes,
+				"fileSrc":item.fileSrc,
+				"fileName":item.fileName,
+				"fileType":item.fileType,
+				"fileSize":item.fileSize
+				}}),
+			contentType: "application/json"
+		});
 	};
 
 	service.deleteItem = function(id){
-		return items.$remove(id);
+		//$http.delete(itemsRef + '?apiKey=' + apiKey + '/' + id);
 	};
+
+	service.saveItem = function(item) {
+		return $http({
+			method: 'POST',
+			url: itemsRef + '?apiKey=' + apiKey,
+			data: JSON.stringify(item),
+			contentType: "application/json"
+		});
+
+	}
 
 	return service;
 	}

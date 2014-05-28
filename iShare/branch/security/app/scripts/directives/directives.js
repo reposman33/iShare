@@ -74,21 +74,20 @@ angular.module("iShareApp")
 	return {
 		restrict: 'A',
 		link: function(scope,element,attrs){
-			element.bind('change',function(){
+			element.bind('change',function() {
 				var file = element[0].files[0];
-				scope.$apply(function(){
 					var reader = new FileReader();
-					reader.onloadend  = function(){
+					reader.onloadend = function () {
 						scope.item.fileSrc = reader.result;
 						scope.item.fileName = file.name;
 						scope.item.fileType = file.type;
 						scope.item.fileSize = file.size;
+						scope.$digest();
 					}
 					reader.readAsDataURL(file);
-				});
-			});
+				})
+			}
 		}
-	}
 }])
 .directive('email',function(){
 	return{

@@ -14,19 +14,19 @@
 	</form>
 </div>
 
-<div class="row cards">
-	<div class="span3 card" ng-repeat="contact in contacts| orderByPriority">
-		<button class="btn close cardClose" ng-click="deleteContact(contact.$id)">&times;</button>
+<div ng-if="contacts.length" class="row cards">
+	<div class="span3 card" ng-repeat="contact in contacts | orderByPriority">
+		<button class="btn close cardClose" ng-click="deleteContact(contact._id.$oid)">&times;</button>
 		<div class="cardHeader">
 			{{contact.name}}
-			<div class="glyphicon glyphicon-pencil btn" ng-click="editContact(contact.$id)"></div>
+			<div class="glyphicon glyphicon-pencil btn" ui-sref="editContact({contactId: contact._id.$oid})"></div>
 		</div>
 		<div class="cardBody">
 			<div>{{contact.address}} {{contact.addressNr}}</div>
 			<div>{{contact.zipcode}}&nbsp;{{contact.city}}</div>
 			<div>{{contact.telephone}}</div>
 			<div>{{contact.email}}</div>
-			<div class="glyphicon glyphicon-plus btn" ng-click="itemDetail(contact.$id)"></div>
+			<div class="glyphicon glyphicon-plus btn" ui-sref="contactItems({contactId:contact._id.$oid})"></div>
 		</div>
 	</div>
 </div>

@@ -10,7 +10,7 @@
 	<input class="form-control" type="password" ng-model="user.password">
 </div>
 
-<div class="btn-group btn-group-justified">
+<div class="btn-group btn-group-justified" ng-show="!regResult || regResult.indexOf('SUCCESS')==-1">
 	<button ng-click="authenticate(user)">OK</button>
 </div>
 

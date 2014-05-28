@@ -18,25 +18,23 @@ angular.module('iShareApp', ['ngRoute','firebase','ui.bootstrap','ui.router'])
 
 	// Anonymous routes
 	$stateProvider
-		.state('login',{
-			url:'/login',
-			templateUrl:"app/views/login.html",
-			controller:"SecurityController",
-			data:{
-				access: 'anon'
-			}
-		})
-		.state('register',{
-			url:'/register',
-			templateUrl:"app/views/register.html",
-			controller:"SecurityController",
-			data:{
-				access: 'anon'
-			}
-		})
-
+	.state('login',{
+		url:'/login',
+		templateUrl:"app/views/login.html",
+		controller:"SecurityController",
+		data:{
+			access: 'anon'
+		}
+	})
+	.state('register',{
+		url:'/register',
+		templateUrl:"app/views/register.html",
+		controller:"SecurityController",
+		data:{
+			access: 'anon'
+		}
+	})
 	//secured routes
-	$stateProvider
 	.state('home',{
 		url:'/home',
 		templateUrl:"app/views/home.htm",
@@ -53,10 +51,22 @@ angular.module('iShareApp', ['ngRoute','firebase','ui.bootstrap','ui.router'])
 			access: 'user'
 		}
 	})
-	.state('contacts.contactDetail',{
-		url:'contactDetail/:contactId',
+	.state('editContact',{
+		url:'/contactDetail/:contactId',
 		templateUrl:"app/views/contactDetail.htm",
-		controller:"contactController"
+		controller:"contactController",
+		data:{
+			access: 'user'
+		}
+	})
+	// without contactId: show all items; with contactId: show items for this contact
+	.state('contactItems',{
+		url:'/items/:contactId',
+		templateUrl:"app/views/itemDetail.htm",
+		controller:"itemController",
+		data:{
+			access: 'user'
+		}
 	})
 	.state('items',{
 		url:'/items',
@@ -66,10 +76,13 @@ angular.module('iShareApp', ['ngRoute','firebase','ui.bootstrap','ui.router'])
 			access: 'user'
 		}
 	})
-	.state('items.itemDetail',{
+	.state('itemDetail',{
 		url:'itemDetail/:contactId',
 		templateUrl:"app/views/itemDetail.htm",
-		controller:"itemDetailController"
+		controller:"itemController",
+		data:{
+			access: 'user'
+		}
 	})
 	.state('logout',{
 		url:'/logout',

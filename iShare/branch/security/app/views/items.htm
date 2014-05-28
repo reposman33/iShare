@@ -1,6 +1,7 @@
 <h2>Uitgeleend</h2>
 
 <div class="glyphicon glyphicon-stats"> </div>
+
 <table class="table table-striped">
 	<tbody class="table-striped table-hover">
 		<tr class="">
@@ -15,9 +16,9 @@
 			<td class="col-md-2" ng-bind="item.startDate | date:'EEEE, MMMM d,y'"></td>
 			<td class="col-md-2" ng-bind="item.endDate | date:'EEEE, MMMM d,y'"></td>
 			<td class="col-md-2" ng-bind="item.name"></td>
-			<td class="col-md-2" email name="{{item.contact.name}}" mailto="{{item.contact.email}}"></td>
+			<td class="col-md-2" email name="{{item.contactName}}" mailto="{{item.contactEmail}}"></td>
 			<td class="col-md-4" ng-bind="item.notes" show-first=25 popup-class="popup" ></td>
 			<td class="col-md-2"><img ng-src='{{item.fileSrc}}' title="{{item.fileName}}" alt="{{item.fileName}}" width="50px"></td>
 		</tr>
 	</tbody>
-</table>
+	</table>
