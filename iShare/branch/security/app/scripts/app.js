@@ -16,6 +16,7 @@ angular.module('iShareApp', ['ngRoute','firebase','ui.bootstrap','ui.router'])
 .config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$stateProvider){
 	$urlRouterProvider.otherwise('/home');
 
+// access control gebeurt in navbarController - die is included in views/nav.html
 	// Anonymous routes
 	$stateProvider
 	.state('login',{
