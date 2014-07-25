@@ -1,5 +1,5 @@
 angular.module('iShareApp', ['ngRoute','firebase','ui.bootstrap','ui.router'])
-.constant('AppConstants',{
+	.constant('AppConstants',{
 	FIREBASE_ISHARE_URL:'https://firelab.firebaseio.com/iShare/',
 	FIREBASE_USERS_URL:'https://firelab.firebaseio.com/users/',
 	MONGODB_API_KEY:'pW4VAHLo4f6q45xLCZXU77w-7g_As1N2',
